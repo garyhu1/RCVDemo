@@ -14,16 +14,16 @@ import android.widget.TextView;
  * 时间： 2017/3/1.
  */
 
-public class PinnedHeaderExpandableAdapter extends BaseExpandableListAdapter implements PinnedHeaderExpandableListView.HeaderAdapter {
+public class PinnedHeaderExpandableAdapter extends BaseExpandableListAdapter implements FoldExpandableListView.HeaderAdapter {
 
     private String[][] childrenData;
     private String[] groupData;
     private Context context;
-    private PinnedHeaderExpandableListView listView;
+    private FoldExpandableListView listView;
     private LayoutInflater inflater;
 
     public PinnedHeaderExpandableAdapter(String[][] childrenData, String[] groupData
-            , Context context, PinnedHeaderExpandableListView listView){
+            , Context context, FoldExpandableListView listView){
         this.groupData = groupData;
         this.childrenData = childrenData;
         this.context = context;

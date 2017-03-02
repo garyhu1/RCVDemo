@@ -9,6 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:text="SECOND"/>
+    <Button
+        android:id="@+id/third"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="THIRD"/>
 
     <com.garyhu.rcvdemo.PinnedHeaderListView
             android:id="@+id/pinnedListView"

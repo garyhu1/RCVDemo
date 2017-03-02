@@ -3,6 +3,7 @@ package com.garyhu.rcvdemo;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,21 +14,22 @@ import android.widget.ExpandableListView;
 /**
  * 作者： garyhu.
  * 时间： 2017/3/1.
+ * 折叠的ExpandableListView
  */
 
-public class PinnedHeaderExpandableListView extends ExpandableListView implements AbsListView.OnScrollListener,ExpandableListView.OnGroupClickListener {
+public class FoldExpandableListView extends ExpandableListView implements AbsListView.OnScrollListener,ExpandableListView.OnGroupClickListener {
 
-    public PinnedHeaderExpandableListView(Context context, AttributeSet attrs, int defStyle) {
+    public FoldExpandableListView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         registerListener();
     }
 
-    public PinnedHeaderExpandableListView(Context context, AttributeSet attrs) {
+    public FoldExpandableListView(Context context, AttributeSet attrs) {
         super(context, attrs);
         registerListener();
     }
 
-    public PinnedHeaderExpandableListView(Context context) {
+    public FoldExpandableListView(Context context) {
         super(context);
         registerListener();
     }
@@ -173,8 +175,8 @@ public class PinnedHeaderExpandableListView extends ExpandableListView implement
 
     @Override
     public void setAdapter(ExpandableListAdapter adapter) {
-        super.setAdapter(adapter);
         mAdapter = (HeaderAdapter) adapter;
+        super.setAdapter(adapter);
     }
 
     /**
@@ -216,7 +218,10 @@ public class PinnedHeaderExpandableListView extends ExpandableListView implement
         final long flatPostion = getExpandableListPosition(getFirstVisiblePosition());
         final int groupPos = ExpandableListView.getPackedPositionGroup(flatPostion);
         final int childPos = ExpandableListView.getPackedPositionChild(flatPostion);
-        int state = mAdapter.getHeaderState(groupPos, childPos);
+        int state = 0;
+        if(mAdapter!=null){
+            state = mAdapter.getHeaderState(groupPos, childPos);
+        }
         if (mHeaderView != null && mAdapter != null && state != mOldState) {
             mOldState = state;
             mHeaderView.layout(0, 0, mHeaderViewWidth, mHeaderViewHeight);

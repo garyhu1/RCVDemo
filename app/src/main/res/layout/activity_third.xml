@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F0F0F0"
-    android:orientation="vertical" >
+    android:layout_height="match_parent">
 
     <com.garyhu.rcvdemo.FoldExpandableListView
-        android:id="@+id/explistview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="0.0dip"
@@ -17,6 +15,7 @@
         android:footerDividersEnabled="true"
         android:groupIndicator="@null"
         android:scrollbars="vertical"
-        android:scrollingCache="true" />
+        android:scrollingCache="true">
 
+    </com.garyhu.rcvdemo.FoldExpandableListView>
 </LinearLayout>

@@ -22,6 +22,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,SecondActivity.class));
             }
         });
+        findViewById(R.id.third).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this,ThirdActivity.class));
+            }
+        });
         PinnedHeaderListView listView = (PinnedHeaderListView) findViewById(R.id.pinnedListView);
         LayoutInflater inflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         LinearLayout header1 = (LinearLayout) inflator.inflate(R.layout.list_item, null);
